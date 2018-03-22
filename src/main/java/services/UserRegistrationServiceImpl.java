@@ -2,13 +2,16 @@ package services;
 
 import forms.RegistrationForm;
 import models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import repository.UserRepository;
 
 @Service
 public class UserRegistrationServiceImpl implements UserRegistrationService {
+    @Autowired
     private UserRepository userRepository;
+
     private  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
