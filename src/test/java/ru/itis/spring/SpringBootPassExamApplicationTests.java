@@ -1,4 +1,4 @@
-package springbootpassexam.spring;
+package ru.itis.spring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

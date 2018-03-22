@@ -1,5 +1,5 @@
-package repository;
-import models.User;
+package ru.itis.repository;
+import ru.itis.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

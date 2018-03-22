@@ -1,4 +1,4 @@
-package forms;
+package ru.itis.forms;
 
 import lombok.Getter;
 import lombok.Setter;

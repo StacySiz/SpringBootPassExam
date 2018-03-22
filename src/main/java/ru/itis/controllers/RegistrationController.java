@@ -1,14 +1,14 @@
-package controllers;
+package ru.itis.controllers;
 
-import forms.RegistrationForm;
+import ru.itis.forms.RegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import services.UserRegistrationService;
-import validators.RegistrationValidator;
+import ru.itis.services.UserRegistrationService;
+import ru.itis.validators.RegistrationValidator;
 
 import javax.validation.Valid;
 
@@ -26,13 +26,17 @@ public class RegistrationController {
         dataBinder.addValidators(registrationValidator);
     }
 
+    @GetMapping("/hey")
+    public String hey(){
+        return "registration";
+    }
 
-    @GetMapping("/registration")
+    @GetMapping(value = "/registration")
     public String showRegPage(){
         return "registration";
     }
 
-    @PostMapping("registration")
+    @PostMapping(value = "registration")
     public String reg(@Valid @ModelAttribute("regForm") RegistrationForm registrationForm,
                       BindingResult result, RedirectAttributes attributes){
 

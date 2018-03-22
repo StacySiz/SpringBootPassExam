@@ -1,11 +1,11 @@
-package services;
+package ru.itis.services;
 
-import forms.RegistrationForm;
-import models.User;
+import ru.itis.forms.RegistrationForm;
+import ru.itis.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
+import ru.itis.repository.UserRepository;
 
 @Service
 public class UserRegistrationServiceImpl implements UserRegistrationService {

@@ -1,6 +1,6 @@
-package services;
+package ru.itis.services;
 
-import forms.RegistrationForm;
+import ru.itis.forms.RegistrationForm;
 
 public interface UserRegistrationService {
     void registration(RegistrationForm registrationForm);
