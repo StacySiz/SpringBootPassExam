@@ -23,8 +23,9 @@
 <body class="text-center">
 <h1></h1>
 
-<form class="form-signin" method="post">
-    <img src="resources/static/pics/saturn" alt="" width="144" height="144">
+<form class="form-signin" action="/registration" method="post">
+    <!--<img src="saturn.png" alt="" width="144" height="144">-->
+    <!--<img th:src="@{'/images/' + ${post.imageName}}"/>-->
 
     <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
     <!--<label for="firstName">First name </label>-->

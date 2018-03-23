@@ -1,7 +1,7 @@
 package ru.itis.validators;
 
 import ru.itis.forms.RegistrationForm;
-import ru.itis.models.User;
+import ru.itis.models.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -24,7 +24,7 @@ public class RegistrationValidator implements Validator {
     @Override
     public void validate(@Nullable Object o, Errors errors) {
         RegistrationForm registrationForm = (RegistrationForm) o;
-        List<User> ourUsers = userRepository.findByEmail(registrationForm.getEmail());
+        List<Users> ourUsers = userRepository.findByEmail(registrationForm.getEmail());
         if(ourUsers!=null){
             errors.reject("email is in db already","Вашему почтовому ящику уже соответсвует аккаунт");
         }
