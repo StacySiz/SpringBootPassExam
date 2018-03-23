@@ -15,6 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "ru/itis/models")
 
 public class SpringBootPassExamApplication extends SpringBootServletInitializer{
+	private int maxUploadSizeInMb = 10 * 1024 * 1024; // 10 MB
+
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

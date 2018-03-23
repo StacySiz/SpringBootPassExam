@@ -1,4 +1,4 @@
-//rupackage ru.itis.security.details;
+//package ru.itis.security.details;
 //
 //import org.springframework.security.core.userdetails.UserDetails;
 //import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,10 +13,7 @@
 //    }
 //    @Override
 //    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        Users user = userRepository.findByEmail(email);
+//        Users user = (Users) userRepository.findByEmail(email);
 //        return new UserDetailsImpl(user);
 //    }
-//        return null;
-//    }
 //}
-//user

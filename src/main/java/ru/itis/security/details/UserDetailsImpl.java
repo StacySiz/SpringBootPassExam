@@ -12,6 +12,9 @@
 //    public Collection<? extends GrantedAuthority> getAuthorities() {
 //        return null;
 //    }
+//    public UserDetailsImpl(Users user){
+//        this.user = user;
+//    }
 //    public Users getUser(){
 //        return user;
 //    }
