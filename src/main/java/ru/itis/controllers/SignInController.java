@@ -42,12 +42,13 @@ public class SignInController {
     public String root(Authentication authentication, @ModelAttribute("model")ModelMap model) {
         if (authentication==null){
             System.out.println("THE SECOND AUTHENTICATION IS NULL");
+            return "redirect:/signIn";
         }
         if (authentication != null) {
             System.out.println("THE USER IS FROM DB");
             Users user = service.getUserByAuthentication(authentication);
             model.addAttribute(service.getUserByAuthentication(authentication));
-            model.addAttribute("greeting",user.getFirstName());
+            model.addAttribute("model",user.getFirstName());
             System.out.println("OUR USER'S NAME IS "+user.getFirstName());
         }
         return "index";

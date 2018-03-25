@@ -1,14 +1,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-
 <head>
-<h1>Hello here are users</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Greeting</title>
+
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-<!--<p th:utext="{name}">-->
-Great to see you again,
-<!--<p th:utext="#{greeting}"></p>-->
-<!--<td th:utext="{user.getFirstName}"></td>-->
-<!--<title th:text="${model.user.email}"></title>NOT WORKING-->
+
+<main role="main" class="container">
+    <h1 class="mt-5">Welcome</h1>
+    <p class="lead">  Great to see you again,<span th:text ="${#authentication.getPrincipal().getUser().getFirstName()}"></span>
+    </p>
+    <div>
+        <p>Would you like to upload a file?</p>
+        <td><a href="/upload">Click here</a></td>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">2018</span>
+    </div>
+</footer>
 </body>
+</html>
