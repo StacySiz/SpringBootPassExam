@@ -7,8 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.itis.models.Users;
 import ru.itis.repository.UserRepository;
-
-import java.util.Optional;
+import ru.itis.security.enums.Role;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -19,6 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetailsServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         System.out.println("THIS EMAIL IS" + email);
