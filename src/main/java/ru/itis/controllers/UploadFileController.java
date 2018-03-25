@@ -11,10 +11,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.springframework.stereotype.Controller;
+import ru.itis.services.DocumentStatsService;
 
 @Controller
 public class UploadFileController {
+    public DocumentStatsService documentStatsService;
 
     private static String UPLOADED_FOLDER = "C://UploadingFiles//";
 
@@ -35,10 +36,13 @@ public class UploadFileController {
         try {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            Files.write(path, bytes);
-
+            Path testfile = Files.write(path, bytes);
+            String result = documentStatsService.count(testfile);
+            System.out.println(result);
+//            String result = "that's a test";
             redirectAttributes.addFlashAttribute("message",
-                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+                    "Result" + result + "'");
+
 
         } catch (IOException e) {
             e.printStackTrace();

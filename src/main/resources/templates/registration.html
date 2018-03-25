@@ -1,4 +1,4 @@
-﻿
+﻿<!doctype html>
 <html lang="ru">
 <head>
     <!-- Required meta tags -->
@@ -22,21 +22,22 @@
 
 <body class="text-center">
 <h1></h1>
-
+<!--<#if error??>-->
+    <!--<div class="alert alert-danger" role="alert">${error}</div>-->
+<!--</#if>-->
 <form class="form-signin" action="/registration" method="post">
     <!--<img src="saturn.png" alt="" width="144" height="144">-->
-    <!--<img th:src="@{'/images/' + ${post.imageName}}"/>-->
 
     <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
     <!--<label for="firstName">First name </label>-->
-    <input type=text id="firstName" class="form-control" placeholder="Имя">
+    <input type=text name="firstName" id="firstName" class="form-control" placeholder="Имя">
 
-    <input type=text id="secondName" class="form-control" placeholder="Фамилия">
+    <input type=text  name="lastName" id="secondName" class="form-control" placeholder="Фамилия">
 
 
-    <input type="email" id="inputEmail" class="form-control" placeholder="Электроная почта" required autofocus>
+    <input type="text" name="email" class="form-control" placeholder="Электроная почта" required autofocus>
 
-    <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
 
     <button class="btn btn-lg btn-success btn-block" type="submit">Зарегистрировать</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
