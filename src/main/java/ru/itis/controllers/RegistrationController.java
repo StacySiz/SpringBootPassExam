@@ -46,6 +46,7 @@ public class RegistrationController {
         System.out.println("hello there #1!");
         registrationService.registration(registrationForm);
         System.out.println("TEST IS HERE 3");
-        return "index";
+
+        return "redirect:/signIn";
     }
 }

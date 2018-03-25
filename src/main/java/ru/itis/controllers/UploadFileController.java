@@ -37,11 +37,11 @@ public class UploadFileController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Path testfile = Files.write(path, bytes);
-            String result = documentStatsService.count(testfile);
-            System.out.println(result);
+//            String result = documentStatsService.count(testfile);
+//            System.out.println(result);
 //            String result = "that's a test";
             redirectAttributes.addFlashAttribute("message",
-                    "Result" + result + "'");
+                    "Result" + path + "'");
 
 
         } catch (IOException e) {
