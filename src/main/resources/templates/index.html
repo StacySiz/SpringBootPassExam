@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Greeting</title>
 
@@ -13,20 +14,33 @@
 </head>
 
 <body>
-
+<div id = "menu1">
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Главная </a>
+    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="/registration" role="tab" aria-controls="v-pills-profile" aria-selected="false">Регистрация</a>
+    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="/logout" role="tab" aria-controls="v-pills-messages" aria-selected="false">Выйти</a>
+    <!--<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>-->
+</div>
+<!--<div class="tab-content" id="v-pills-tabContent">-->
+    <!--<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>-->
+    <!--<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>-->
+    <!--<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>-->
+    <!--<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>-->
+<!--</div>-->
+</div>
 <main role="main" class="container">
-    <h1 class="mt-5">Welcome</h1>
-    <p class="lead">  Great to see you again,<span th:text ="${#authentication.getPrincipal().getUser().getFirstName()}"></span>
+    <h1 class="mt-5">Добро пожаловать</h1>
+    <p class="lead">  Рады снова вас видеть,<span th:text ="${#authentication.getPrincipal().getUser().getFirstName()}"></span>
     </p>
     <div>
-        <p>Would you like to upload a file?</p>
-        <td><a href="/upload">Click here</a></td>
+        <p>Желаете загрузить файл?</p>
+        <td><a href="/upload">Нажмите сюда</a></td>
     </div>
 </main>
 
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">2018</span>
+        <span class="text-muted">OkiDoki 2018</span>
     </div>
 </footer>
 </body>

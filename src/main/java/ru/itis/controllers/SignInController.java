@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.itis.models.Users;
 import ru.itis.services.AuthenticationService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Controller
@@ -38,6 +39,14 @@ public class SignInController {
         return "signIn";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, Authentication authentication) {
+        if (authentication != null) {
+            request.getSession().invalidate();
+        }
+
+        return "redirect:/signIn";
+    }
     @GetMapping("/")
     public String root(Authentication authentication, @ModelAttribute("model")ModelMap model) {
         if (authentication==null){
