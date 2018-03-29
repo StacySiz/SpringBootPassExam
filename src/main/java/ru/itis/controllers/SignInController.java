@@ -35,7 +35,7 @@ public class SignInController {
             System.out.println("HERE REDIRECT IS HAPPENING");
             return "redirect:/";
         }
-//        model.addAttribute("error", error);
+        model.addAttribute("error", error);
         return "signIn";
     }
 
