@@ -48,7 +48,7 @@ public class SignInController {
         return "redirect:/signIn";
     }
     @GetMapping("/")
-    public String root(Authentication authentication, @ModelAttribute("model")ModelMap model) {
+    public String root(Authentication authentication) {
         if (authentication==null){
             System.out.println("THE SECOND AUTHENTICATION IS NULL");
             return "redirect:/signIn";
@@ -56,8 +56,8 @@ public class SignInController {
         if (authentication != null) {
             System.out.println("THE USER IS FROM DB");
             Users user = service.getUserByAuthentication(authentication);
-            model.addAttribute(service.getUserByAuthentication(authentication));
-            model.addAttribute("model",user.getFirstName());
+//            model.addAttribute(service.getUserByAuthentication(authentication));
+//            model.addAttribute("model",user.getFirstName());
             System.out.println("OUR USER'S NAME IS "+user.getFirstName());
         }
         return "index";

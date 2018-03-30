@@ -2,6 +2,7 @@ package ru.itis.security.providers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -36,23 +37,29 @@ public class AuthProvider implements AuthenticationProvider {
         String email = authentication.getName();
 
 //        String email = String.valueOf(authentication.getPrincipal());
-        System.out.println("THIS EMAIL IS FROM AUTHENTICATION "+ email);
-        // получаем пароль
+        System.out.println("THIS EMAIL IS FROM AUTHENTICATION " + email);
         String password = authentication.getCredentials()
                 .toString();
-        System.out.println("THIS PASSWORD IS FROM AUTHENTICATION "+ password);
+        System.out.println("THIS PASSWORD IS FROM AUTHENTICATION " + password);
 
         Optional<Users> usersList = usersRepository.findByEmail(email);
+        Users user = null;
         if (usersList.isPresent()) {
-            Users user = usersList.get();
-            usersRepository.save(user);
-        }
-            UserDetails details = userDetailsService.loadUserByUsername(email);
-        Collection<? extends GrantedAuthority> authorities = details.getAuthorities();
+             user = usersList.get();
+            System.out.println("THIS PASSWORD IS WRITTEN NOW" + password);
+            System.out.println("THIS PASSWORD IS WRITTEN IN DATABASE" + user.getPassword());
 
-        System.out.println("PREPARING TO RETURN AUTH PARAMETERS");
-            return new UsernamePasswordAuthenticationToken(details, password,authorities);
         }
+        UserDetails details = null;
+        Collection<? extends GrantedAuthority> authorities = null;
+        if (passwordEncoder.matches(password, user.getPassword())) {
+             details = userDetailsService.loadUserByUsername(email);
+             authorities = details.getAuthorities();
+
+            System.out.println("PREPARING TO RETURN AUTH PARAMETERS");
+        }
+        return new UsernamePasswordAuthenticationToken(details, password, authorities);
+    }
 
     @Override
     public boolean supports(Class<?> aClass) {
